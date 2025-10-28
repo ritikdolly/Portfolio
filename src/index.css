@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
+@theme {
+  /* You can extend theme colors or fonts here if needed */
+}
+
+/* Optional: smooth transition between themes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
 
 :root{
