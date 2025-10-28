@@ -6,103 +6,99 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="flex flex-col md:flex-row items-center justify-center min-h-screen gap-8 px-6 py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800"
+      className="flex flex-col md:flex-row items-center justify-between min-h-screen px-8 py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden"
     >
-      {/* Text Section */}
+      {/* Left content */}
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
-        className="flex-1 text-center md:text-left"
+        initial={{ opacity: 0, x: -80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="flex-1 space-y-6"
       >
         <motion.h1
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.3 }}
-          className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white"
+          whileHover={{ scale: 1.05, color: "#3b82f6" }}
+          transition={{ duration: 0.4 }}
+          className="text-4xl md:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white"
         >
-          Hi, I'm Ritik — a{" "}
-          <span className="text-blue-600 dark:text-blue-400">Software Developer</span>
+          Hi, I'm Ritik — a Software Developer
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="mt-4 max-w-xl mx-auto md:mx-0 text-gray-700 dark:text-gray-300"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="text-gray-700 dark:text-gray-300 text-lg max-w-xl"
         >
-          I build web apps, tools, and experiments focused on performance and
-          delightful user experience.
+          I build web apps, tools, and experiments focused on performance and delightful UX.
         </motion.p>
 
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-6 flex justify-center md:justify-start gap-4"
-        >
+        <div className="flex gap-4 mt-8">
           <motion.a
-            whileHover={{ scale: 1.05 }}
             href="#projects"
-            className="px-5 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0 0 20px rgba(59,130,246,0.6)",
+            }}
+            transition={{ duration: 0.3 }}
+            className="px-6 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700"
           >
             See Projects
           </motion.a>
+
           <motion.a
-            whileHover={{ scale: 1.05 }}
             href="/resume.pdf"
             target="_blank"
-            className="px-5 py-3 border border-gray-400 dark:border-gray-600 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0 0 20px rgba(255,255,255,0.4)",
+            }}
+            transition={{ duration: 0.3 }}
+            className="px-6 py-3 text-gray-700 dark:text-gray-300 rounded-full font-medium hover:bg-gray-200 dark:hover:bg-gray-700"
           >
             Resume
           </motion.a>
-        </motion.div>
+        </div>
 
-        {/* Social Links */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          className="mt-6 flex justify-center md:justify-start gap-5"
-        >
+        <div className="flex gap-4 mt-6 text-2xl">
           <motion.a
             href="https://github.com/ritikdolly"
             target="_blank"
-            aria-label="GitHub"
-            whileHover={{ scale: 1.2, rotate: 10 }}
+            whileHover={{ scale: 1.2, rotate: 10, color: "#3b82f6" }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
           >
-            <FaGithub size={24} />
+            <FaGithub />
           </motion.a>
-
           <motion.a
             href="https://www.linkedin.com/in/ritik-kumar-0a2728192/"
             target="_blank"
-            aria-label="LinkedIn"
-            whileHover={{ scale: 1.2, rotate: -10 }}
+            whileHover={{ scale: 1.2, rotate: -10, color: "#0e76a8" }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
           >
-            <FaLinkedin size={24} />
+            <FaLinkedin />
           </motion.a>
-        </motion.div>
+        </div>
       </motion.div>
 
-      {/* Profile Image */}
+      {/* Profile Image with 3D tilt and NO border */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
-        whileHover={{ scale: 1.05, rotate: 2 }}
-        className="w-48 h-48 rounded-full overflow-hidden bg-gray-100 flex-shrink-0 shadow-lg"
+        initial={{ opacity: 0, scale: 0.8, rotateY: 10 }}
+        whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+        whileHover={{
+          rotateY: 15,
+          rotateX: 5,
+          scale: 1.08,
+          boxShadow: "0 20px 40px rgba(59,130,246,0.3)",
+        }}
+        viewport={{ once: false, amount: 0.4 }}
+        transition={{ duration: 0.8, type: "spring" }}
+        className="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden mt-10 md:mt-0 bg-transparent"
+        style={{ transformStyle: "preserve-3d", perspective: 1000 }}
       >
         <img
-          src="/src/assets/images/ritik.png"
-          alt="profile"
-          className="w-full h-full object-cover"
+          src="/src/assets/images/ritikKr.png"
+          alt="Ritik Kumar"
+          className="w-full h-full object-cover rounded-full"
         />
       </motion.div>
     </section>
