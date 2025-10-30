@@ -24,7 +24,7 @@ export default function Navbar() {
             Projects
           </a>
           <a
-            href="#skills"
+            href="#About"
             className="hidden md:inline hover:text-blue-600 dark:hover:text-cyan-400 transition-colors"
           >
             Skills

@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="flex flex-col md:flex-row items-center justify-between min-h-screen px-8 py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden"
+      className="flex flex-col md:flex-row items-center justify-between min-h-screen px-8"
     >
       {/* Left content */}
       <motion.div

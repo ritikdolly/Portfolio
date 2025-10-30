@@ -12,7 +12,7 @@ function Contact() {
   return (
     <motion.section
       id="contact"
-      className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
+      className="py-10"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -42,12 +42,12 @@ function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.7 }}
         >
-          Have a question, idea, or opportunity?  
-          I’d love to hear from you! Just drop a message and I’ll get back to you soon.
+          Have a question, project idea, or collaboration in mind?  
+          Fill out the form below and I’ll get back to you soon!
         </motion.p>
 
         <motion.form
-          action="https://formspree.io/f/mrboekvg"
+          action="https://formspree.io/f/mldobyrd"
           method="POST"
           onSubmit={handleSubmit}
           className="space-y-6 bg-white dark:bg-gray-900/70 p-8 rounded-2xl shadow-lg backdrop-blur-sm relative"
@@ -56,6 +56,7 @@ function Contact() {
           transition={{ delay: 0.5, duration: 0.8 }}
           viewport={{ once: true }}
         >
+          {/* Name, Email */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <motion.input
               type="text"
@@ -75,6 +76,48 @@ function Contact() {
             />
           </div>
 
+          {/* Phone, Subject */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              pattern="[0-9]{10}"
+              className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              whileFocus={{ scale: 1.02 }}
+            />
+            <motion.input
+              type="text"
+              name="subject"
+              placeholder="Subject / Topic"
+              className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              whileFocus={{ scale: 1.02 }}
+            />
+          </div>
+
+          {/* Dropdown for Inquiry Type */}
+          <motion.select
+            name="reason"
+            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+            whileFocus={{ scale: 1.02 }}
+          >
+            <option value="">Select reason for contact</option>
+            <option value="project">Project Collaboration</option>
+            <option value="freelance">Freelance Work</option>
+            <option value="query">General Inquiry</option>
+            <option value="feedback">Feedback</option>
+          </motion.select>
+
+          {/* Budget Input (optional) */}
+          <motion.input
+            type="text"
+            name="budget"
+            placeholder="Estimated Budget (optional)"
+            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+            whileFocus={{ scale: 1.02 }}
+          />
+
+          {/* Message Box */}
           <motion.textarea
             name="message"
             rows="5"
@@ -84,6 +127,7 @@ function Contact() {
             whileFocus={{ scale: 1.02 }}
           ></motion.textarea>
 
+          {/* Submit Button */}
           <motion.button
             type="submit"
             className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all"
@@ -96,6 +140,7 @@ function Contact() {
             {sent ? "Sent ✅" : "Send Message"}
           </motion.button>
 
+          {/* Confirmation Message */}
           {sent && (
             <motion.p
               className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 text-green-600 dark:text-green-400 font-semibold"
