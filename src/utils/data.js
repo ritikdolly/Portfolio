@@ -39,4 +39,68 @@ export const projectList = [
 
 
 
-export const skills = ['React', 'JavaScript', 'Node.js', 'Tailwind', 'Git']
+export const skillsData = [
+  {
+    title: "Frontend Development",
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6+)",
+      "React.js",
+      "Next.js",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Angular",
+    ],
+  },
+  {
+    title: "Backend Development",
+    skills: [
+      "Java",
+      "Spring Boot",
+      "Node.js",
+      "Express.js",
+      "REST API",
+      "JSP / Servlets",
+    ],
+  },
+  {
+    title: "Database & Cloud",
+    skills: [
+      "MySQL",
+      "MongoDB",
+      "Firebase",
+      "PostgreSQL",
+      "AWS (Basic)",
+    ],
+  },
+  {
+    title: "Tools & Technologies",
+    skills: [
+      "Git & GitHub",
+      "Postman",
+      "Maven",
+      "VS Code",
+      "IntelliJ IDEA",
+      "Eclipse",
+    ],
+  },
+  {
+    title: "UI/UX & Design",
+    skills: [
+      "Responsive Design",
+      "Figma (Basic)",
+      "Material UI",
+      "ShadCN UI",
+    ],
+  },
+  {
+    title: "Other Skills",
+    skills: [
+      "Problem Solving",
+      "OOP Concepts",
+      "Team Collaboration",
+      "Agile / Scrum",
+    ],
+  },
+];
