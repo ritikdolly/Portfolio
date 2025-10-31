@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { projectList } from "../../utils/data";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { projectList } from "../../utils/data";
 
 export default function Projects() {
   const [active, setActive] = useState(0);
@@ -9,7 +9,7 @@ export default function Projects() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % projectList.length);
-    }, 4000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -22,15 +22,32 @@ export default function Projects() {
   };
 
   return (
-    <section
+    <motion.section
       id="projects"
-      className="py-24 flex flex-col items-center text-center bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
+      className="relative py-36 px-6 md:px-16 text-center
+                 bg-gradient-to-b from-white/80 via-white/40 to-transparent 
+                 dark:from-gray-900/80 dark:via-gray-800/40 dark:to-transparent 
+                 backdrop-blur-3xl border border-gray-300/30 dark:border-gray-700/40
+                 rounded-[40px] mx-4 md:mx-12 shadow-[0_12px_80px_-20px_rgba(0,0,0,0.25)]"
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+      viewport={{ once: true }}
     >
-      <h2 className="text-4xl font-bold mb-12 text-blue-600 dark:text-blue-400">
-        Projects
-      </h2>
+      {/* Title */}
+      <motion.h2
+        className="text-5xl font-semibold mb-16 tracking-tight text-gray-900 dark:text-gray-100"
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        Featured Projects
+      </motion.h2>
 
-      <div className="relative w-full max-w-5xl h-[480px] flex items-center justify-center overflow-hidden">
+      {/* 3D Carousel */}
+      <div
+        className="relative w-full max-w-7xl h-[560px] mx-auto flex items-center justify-center perspective-[2000px]"
+      >
         <AnimatePresence>
           {projectList.map((project, index) => {
             const position = getPosition(index);
@@ -39,23 +56,26 @@ export default function Projects() {
               center: {
                 x: 0,
                 scale: 1,
-                zIndex: 3,
-                opacity: 1,
                 rotateY: 0,
+                zIndex: 5,
+                opacity: 1,
+                filter: "blur(0px)",
               },
               left: {
                 x: "-60%",
-                scale: 0.8,
-                zIndex: 2,
-                opacity: 0.6,
+                scale: 0.85,
                 rotateY: 25,
+                zIndex: 3,
+                opacity: 0.4,
+                filter: "blur(3px)",
               },
               right: {
                 x: "60%",
-                scale: 0.8,
-                zIndex: 2,
-                opacity: 0.6,
+                scale: 0.85,
                 rotateY: -25,
+                zIndex: 3,
+                opacity: 0.4,
+                filter: "blur(3px)",
               },
               hidden: { opacity: 0, scale: 0.6, zIndex: 0 },
             };
@@ -63,67 +83,80 @@ export default function Projects() {
             return (
               <motion.div
                 key={project.id}
-                className="absolute w-[70%] md:w-[55%] bg-white/10 dark:bg-gray-800/60 rounded-3xl shadow-xl backdrop-blur-md overflow-hidden cursor-pointer"
+                className="absolute w-[80%] md:w-[55%] 
+                           rounded-[32px] overflow-hidden 
+                           bg-white/50 dark:bg-gray-800/60 
+                           backdrop-blur-2xl border border-gray-300/30 dark:border-gray-700/30
+                           shadow-[0_15px_80px_-25px_rgba(0,0,0,0.25)] 
+                           transform-style-preserve-3d"
                 initial={{ opacity: 0 }}
                 animate={variants[position]}
                 exit={{ opacity: 0 }}
-                transition={{
-                  duration: 0.8,
-                  ease: "easeInOut",
+                transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+                whileHover={{
+                  scale: 1.04,
+                  boxShadow: "0 0 60px rgba(0,0,0,0.15)",
                 }}
               >
                 <motion.img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-56 object-cover"
+                  className="w-full h-64 object-cover border-b border-gray-200/30"
                   whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.6 }}
                 />
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold mb-2">
+                <div className="p-8 text-center">
+                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm md:text-base">
+                  <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="flex justify-center gap-6 text-xl">
-                    <a
+                  <div className="flex justify-center gap-10 text-2xl">
+                    <motion.a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-blue-500 transition-colors"
+                      className="hover:text-black dark:hover:text-white transition-colors"
+                      whileHover={{ scale: 1.2, rotate: 8 }}
                     >
                       <FaGithub />
-                    </a>
-                    <a
+                    </motion.a>
+                    <motion.a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-green-500 transition-colors"
+                      className="hover:text-blue-600 transition-colors"
+                      whileHover={{ scale: 1.2, rotate: -8 }}
                     >
                       <FaExternalLinkAlt />
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
+
+                {/* Subtle Mac-like reflection */}
+                <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white/30 dark:from-gray-900/20 to-transparent" />
               </motion.div>
             );
           })}
         </AnimatePresence>
       </div>
 
-      {/* Dots navigation */}
-      <div className="flex justify-center gap-3 mt-10">
+      {/* Navigation dots */}
+      <div className="flex justify-center gap-3 mt-14">
         {projectList.map((_, index) => (
           <motion.button
             key={index}
             onClick={() => setActive(index)}
-            className={`w-3 h-3 rounded-full ${
-              active === index ? "bg-blue-600 w-6" : "bg-gray-400"
-            } transition-all`}
-            whileHover={{ scale: 1.2 }}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              active === index
+                ? "bg-blue-600 w-6 shadow-[0_0_20px_rgba(59,130,246,0.6)]"
+                : "bg-gray-400/60 hover:bg-blue-400/70"
+            }`}
+            whileHover={{ scale: 1.25 }}
           />
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

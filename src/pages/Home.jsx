@@ -8,7 +8,7 @@ import Skills from '../sections/Skills/Skills'
 
 export default function Home(){
 return (
-<div className="space-y-10">
+<div className="space-y-20">
 <Hero />
 <About/>
 <Skills/>

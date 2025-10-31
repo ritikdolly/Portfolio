@@ -1,14 +1,27 @@
 @import "tailwindcss";
 
-@theme {
-  /* You can extend theme colors or fonts here if needed */
-}
-
-/* Optional: smooth transition between themes */
+/* Optional: smooth color transitions */
 * {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-white text-gray-900;
+  }
+
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
 
 :root{
 --max-w: 1300px;
@@ -23,4 +36,4 @@
 
 
 /* simple dark mode example */
-.dark body { background: #e1e2e3 }
+/* .dark body { background: #e1e2e3 } */
