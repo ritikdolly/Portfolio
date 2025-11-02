@@ -37,3 +37,17 @@
 
 /* simple dark mode example */
 /* .dark body { background: #e1e2e3 } */
+/* Hide scrollbar but keep scroll functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Smooth scroll globally */
+html {
+  scroll-behavior: smooth;
+}
