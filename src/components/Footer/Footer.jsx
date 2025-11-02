@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from "react-icons/fa";
+import * as Icons from "react-icons/fa"; // import all icons from react-icons
+import { socialLinks } from "../../utils/data";
 
 export default function Footer() {
   return (
@@ -15,7 +16,6 @@ export default function Footer() {
                  rounded-t-3xl text-center"
     >
       <div className="max-w-6xl mx-auto px-6 py-10">
-        {/* Developer Name */}
         <motion.h3
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,7 +28,6 @@ export default function Footer() {
           </span>
         </motion.h3>
 
-        {/* Subtext */}
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,57 +41,37 @@ export default function Footer() {
           & a touch of minimalism 🍏
         </motion.p>
 
-        {/* Social Icons (Mac Dock Style) */}
+        
+
+        {/* Social Links (from data file) */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
           className="flex justify-center gap-8 mt-8"
         >
-          {[
-            {
-              icon: <FaGithub size={22} />,
-              link: "https://github.com/ritikdolly",
-              label: "GitHub",
-              color: "#333",
-            },
-            {
-              icon: <FaLinkedin size={22} />,
-              link: "https://www.linkedin.com/in/ritik-kumar-0a2728192/",
-              label: "LinkedIn",
-              color: "#0A66C2",
-            },
-            {
-              icon: <FaEnvelope size={22} />,
-              link: "mailto:ritik409kumar@gmail.com",
-              label: "Email",
-              color: "#0891b2",
-            },
-            {
-              icon: <FaInstagram size={22} />,
-              link: "https://www.instagram.com/your_instagram_id",
-              label: "Instagram",
-              color: "#E1306C",
-            },
-          ].map((social, index) => (
-            <motion.a
-              key={social.label}
-              href={social.link}
-              target="_blank"
-              rel="noreferrer"
-              whileHover={{
-                scale: 1.3,
-                y: -5,
-                color: social.color,
-                textShadow: `0 0 12px ${social.color}`,
-              }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="text-gray-700 dark:text-gray-300 hover:opacity-90 transition-all"
-              aria-label={social.label}
-            >
-              {social.icon}
-            </motion.a>
-          ))}
+          {socialLinks.map((social) => {
+            const IconComponent = Icons[social.icon];
+            return (
+              <motion.a
+                key={social.label}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{
+                  scale: 1.3,
+                  y: -5,
+                  color: social.color,
+                  textShadow: `0 0 12px ${social.color}`,
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="text-gray-700 dark:text-gray-300 hover:opacity-90 transition-all"
+                aria-label={social.label}
+              >
+                <IconComponent size={22} />
+              </motion.a>
+            );
+          })}
         </motion.div>
 
         {/* Glowing Divider */}

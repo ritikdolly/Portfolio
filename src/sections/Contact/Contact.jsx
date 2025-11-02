@@ -61,6 +61,36 @@ function Contact() {
         Let’s Connect
       </motion.h2>
 
+      {/* Contact Info Display */}
+      <motion.div
+        className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8 text-lg font-medium 
+                   text-gray-800 dark:text-gray-300 bg-white/20 dark:bg-gray-800/30 px-4 py-3 
+                   rounded-2xl border border-gray-300/20 dark:border-gray-700/30 backdrop-blur-sm"
+        initial={{ opacity: 0, y: -10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <p>
+          📧{" "}
+          <a
+            href="mailto:ritik409kumar@gmail.com"
+            className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            ritik409kumar@gmail.com
+          </a>
+        </p>
+        <span className="hidden sm:block text-gray-400 dark:text-gray-500">|</span>
+        <p>
+          📞{" "}
+          <a
+            href="tel:+919798904589"
+            className="hover:text-green-600 dark:hover:text-green-400 transition-colors"
+          >
+            +91 9798904589
+          </a>
+        </p>
+      </motion.div>
+
       <motion.p
         className="text-gray-700 dark:text-gray-300 text-lg mb-14 max-w-2xl mx-auto leading-relaxed"
         initial={{ opacity: 0, y: 20 }}

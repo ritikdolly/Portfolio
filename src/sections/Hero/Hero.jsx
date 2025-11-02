@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import * as Icons from "react-icons/fa"; // import all FA icons
+import { socialLinks } from "../../utils/data";
 import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
   FaFileAlt,
   FaBriefcase,
   FaCode,
@@ -12,7 +11,7 @@ import { MdContactMail } from "react-icons/md";
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState("");
-  const fullText = "Foull Stack Developer | Java | Spring Boot | React |";
+  const fullText = "Foull Stack Developer | Java | Spring Boot | React | DevOps";
 
   useEffect(() => {
     let index = 0;
@@ -105,7 +104,7 @@ export default function Hero() {
           </motion.a>
 
           <motion.a
-            href="/resume.pdf"
+            href="https://drive.google.com/drive/folders/1GeQa-iGawRIGyfrcfwCHV8MtGgCQ4yqq?usp=sharing"
             target="_blank"
             whileHover={{
               scale: 1.1,
@@ -129,33 +128,29 @@ export default function Hero() {
           </motion.a>
         </motion.div>
 
-        {/* Social Links */}
+       {/* Social Links (Dynamic from data.js) */}
         <div className="flex gap-8 mt-8 text-3xl">
-          <motion.a
-            href="https://github.com/ritikdolly"
-            target="_blank"
-            whileHover={{ scale: 1.2, rotate: 10, color: "#3b82f6" }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <FaGithub />
-          </motion.a>
-
-          <motion.a
-            href="https://www.linkedin.com/in/ritik-kumar-0a2728192/"
-            target="_blank"
-            whileHover={{ scale: 1.2, rotate: -10, color: "#0e76a8" }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <FaLinkedin />
-          </motion.a>
-
-          <motion.a
-            href="mailto:ritik409kumar@gmail.com"
-            whileHover={{ scale: 1.2, rotate: 10, color: "#22c55e" }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <FaEnvelope />
-          </motion.a>
+          {socialLinks.map((social) => {
+            const Icon = Icons[social.icon];
+            return (
+              <motion.a
+                key={social.label}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{
+                  scale: 1.3,
+                  rotate: 10,
+                  color: social.color,
+                  textShadow: `0 0 12px ${social.color}`,
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="text-gray-700 dark:text-gray-300 hover:opacity-90 transition-all"
+              >
+                <Icon />
+              </motion.a>
+            );
+          })}
         </div>
       </motion.div>
 

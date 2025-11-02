@@ -41,13 +41,11 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        Featured Projects
+        Projects & Work Experiences
       </motion.h2>
 
       {/* 3D Carousel */}
-      <div
-        className="relative w-full max-w-7xl h-[560px] mx-auto flex items-center justify-center perspective-[2000px]"
-      >
+      <div className="relative w-full max-w-7xl h-[560px] mx-auto flex items-center justify-center perspective-[2000px]">
         <AnimatePresence>
           {projectList.map((project, index) => {
             const position = getPosition(index);
@@ -117,7 +115,7 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-black dark:hover:text-white transition-colors"
+                      className="hover:text-black dark:hover:text-white transition-colors z-10 relative"
                       whileHover={{ scale: 1.2, rotate: 8 }}
                     >
                       <FaGithub />
@@ -126,7 +124,7 @@ export default function Projects() {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-blue-600 transition-colors"
+                      className="hover:text-blue-600 transition-colors z-10 relative"
                       whileHover={{ scale: 1.2, rotate: -8 }}
                     >
                       <FaExternalLinkAlt />
