@@ -104,7 +104,7 @@ export default function Hero() {
           </motion.a>
 
           <motion.a
-            href="https://drive.google.com/drive/folders/1GeQa-iGawRIGyfrcfwCHV8MtGgCQ4yqq?usp=sharing"
+            href="https://drive.google.com/drive/folders/1u-sdqVC9FhCa6XBG-mcJ7J0P_pTIJ0Jf?usp=sharing"
             target="_blank"
             whileHover={{
               scale: 1.1,
@@ -169,7 +169,7 @@ export default function Hero() {
         style={{ transformStyle: "preserve-3d", perspective: 1000 }}
       >
         <img
-          src="/src/assets/images/ritikKr.png"
+          src="/src/assets/images/ritik.png"
           alt="Ritik Kumar"
           className="w-full h-full object-cover rounded-3xl"
         />
