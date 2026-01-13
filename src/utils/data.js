@@ -71,13 +71,26 @@ export const skillsData = [
       "MongoDB",
       "Firebase",
       "PostgreSQL",
-      "AWS (Basic)",
+      "AWS (EC2, S3 – Basic)",
     ],
   },
+
+  // ✅ NEW DEVOPS SECTION
+  {
+    title: "DevOps & Deployment",
+    skills: [
+      "Git & GitHub",
+      "GitHub Actions (CI/CD)",
+      "Docker (Basics)",
+      "Linux (Basics)",
+      "Nginx (Basic)",
+      "AWS Deployment",
+    ],
+  },
+
   {
     title: "Tools & Technologies",
     skills: [
-      "Git & GitHub",
       "Postman",
       "Maven",
       "VS Code",
@@ -92,6 +105,9 @@ export const skillsData = [
       "Figma (Basic)",
       "Material UI",
       "ShadCN UI",
+      "Mui",
+      "Bootstrap",
+      "Tailwind CSS",
     ],
   },
   {
@@ -104,6 +120,7 @@ export const skillsData = [
     ],
   },
 ];
+
 
 
 export const socialLinks = [
@@ -119,12 +136,12 @@ export const socialLinks = [
     link: "https://www.linkedin.com/in/ritik-kumar-0a2728192/",
     color: "#0A66C2",
   },
-  {
-    label: "Email",
-    icon: "FaEnvelope",
-    link: "mailto:ritik409kumar@gmail.com",
-    color: "#0891b2",
-  },
+  // {
+  //   label: "Email",
+  //   icon: "FaEnvelope",
+  //   link: "mailto:ritik409kumar@gmail.com",
+  //   color: "#0891b2",
+  // },
   {
     label: "Instagram",
     icon: "FaInstagram",

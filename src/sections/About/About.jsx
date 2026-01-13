@@ -5,21 +5,35 @@ export default function About() {
   return (
     <motion.section
       id="about"
-      className="py-24 mx-2 md:mx-10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]
-                 bg-white/40 dark:bg-gray-900/50 backdrop-blur-lg border border-gray-200/40 dark:border-gray-700/40
-                 text-gray-800 dark:text-gray-100 overflow-hidden"
-      initial={{ opacity: 0, y: 80 }}
+      className="
+        py-16 sm:py-20 lg:py-24
+        mx-3 sm:mx-6 lg:mx-10
+        rounded-2xl
+        bg-white/50 dark:bg-gray-900/60
+        backdrop-blur-xl
+        border border-gray-200/40 dark:border-gray-700/40
+        shadow-[0_8px_30px_rgba(0,0,0,0.12)]
+        text-gray-800 dark:text-gray-100
+        overflow-hidden
+      "
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.9, ease: "easeOut" }}
-      viewport={{ once: false, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true }}
     >
-      <div className="max-w-6xl mx-auto px-8 text-center">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 text-center">
         {/* Title */}
         <motion.h2
-          className="text-5xl font-semibold text-gray-900 dark:text-gray-100 mb-12 tracking-tight"
-          initial={{ opacity: 0, y: -30 }}
+          className="
+            text-3xl sm:text-4xl lg:text-5xl
+            font-semibold
+            tracking-tight
+            text-gray-900 dark:text-gray-100
+            mb-8 sm:mb-12
+          "
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           About Me
@@ -27,10 +41,15 @@ export default function About() {
 
         {/* Description */}
         <motion.p
-          className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 40 }}
+          className="
+            text-base sm:text-lg md:text-xl
+            leading-relaxed
+            text-gray-700 dark:text-gray-300
+            max-w-4xl mx-auto
+          "
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
           viewport={{ once: true }}
         >
           Hi, I’m{" "}
@@ -43,10 +62,10 @@ export default function About() {
           </span>{" "}
           skilled in{" "}
           <span className="font-semibold text-blue-600 dark:text-blue-400">
-            Java, Spring Boot, React, Angular, and MySQL
+            Java, Spring Boot, React, MongoDB and MySQL
           </span>
-          . I create scalable and elegant web solutions that balance beautiful
-          design with strong backend logic. My key projects include a{" "}
+          . I focus on building scalable, maintainable web applications that
+          combine intuitive UI with reliable backend systems. My work includes a{" "}
           <span className="font-semibold text-blue-600 dark:text-blue-400">
             Mentoring ERP System
           </span>
@@ -58,31 +77,38 @@ export default function About() {
           <span className="font-semibold text-blue-600 dark:text-blue-400">
             Banking Management System
           </span>
-          — all built with precision, creativity, and modern technology.
+          .
         </motion.p>
 
         {/* Highlights */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16">
+        {/* Highlights */}
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mt-12 sm:mt-16">
           {[
-            { title: "Experience", value: "2+ Years" },
             { title: "Projects", value: "10+" },
             { title: "Expertise", value: "Full Stack Development" },
           ].map((item, index) => (
             <motion.div
               key={index}
-              className="p-5 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.08)] 
-                         bg-white/50 dark:bg-gray-800/50 backdrop-blur-md border border-gray-200/30 dark:border-gray-700/30
-                         hover:shadow-[0_6px_25px_rgba(0,0,0,0.12)] transition-all duration-300"
-              initial={{ opacity: 0, y: 50 }}
+              className="
+        w-full sm:w-[260px] lg:w-[300px]
+        p-5 sm:p-6
+        rounded-xl
+        bg-white/60 dark:bg-gray-800/60
+        backdrop-blur-md
+        border border-gray-200/30 dark:border-gray-700/30
+        shadow-[0_4px_15px_rgba(0,0,0,0.08)]
+        transition-all duration-300
+      "
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.45, delay: index * 0.15 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.04 }}
             >
-              <h4 className="text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+              <h4 className="text-xs sm:text-sm font-medium uppercase tracking-wider text-gray-600 dark:text-gray-400">
                 {item.title}
               </h4>
-              <p className="text-2xl font-semibold text-gray-900 dark:text-white mt-1">
+              <p className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mt-1">
                 {item.value}
               </p>
             </motion.div>
